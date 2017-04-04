@@ -1,0 +1,27 @@
+.App {
+}
+
+.table {
+  width: 100%;
+  height: 100%;
+}
+
+.table td {
+  border: 1px solid lightgrey;
+  text-align: right;
+  padding: 10px;
+}
+
+.progress {
+  height:7px;
+  width:75%;
+}
+
+.selectedCategory {
+  background-color: Gray;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
