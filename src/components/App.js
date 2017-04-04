@@ -15,7 +15,7 @@ class App extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <td><h3>To-Do List</h3></td>
+              <td><h3>To-Do List2</h3></td>
               <td><Filter /></td>
             </tr>
             <tr>
