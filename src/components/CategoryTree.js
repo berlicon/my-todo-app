@@ -31,7 +31,7 @@ class CategoryTree extends Component {
 
         this.selectedCategoryTitle = node.title;
         this.selectedCategoryTodosCount = node.todos.length;
-        this.props.selectCategory(node.todos);
+        this.props.selectCategory(node.id, node.todos);
 
         /*alert( // eslint-disable-line no-alert
             'Info passed to the button generator:\n\n' +
@@ -73,8 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectCategory: (value) => {
-      dispatch({type: 'SELECT_CATEGORY', todos: value})
+    selectCategory: (categoryId, todos) => {
+      dispatch({type: 'SELECT_CATEGORY', categoryId: categoryId, todos: todos })
     }
   }
 }

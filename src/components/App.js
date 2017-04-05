@@ -24,7 +24,7 @@ class App extends Component {
             <tr>
               <td><AddCategory addCategory={this.props.addCategory} />
               </td>
-              <td><AddToDo /></td>
+              <td><AddToDo addTodo={this.props.addTodo} categoryId={this.props.data.selectedCategory.categoryId} /></td>
             </tr>
             <tr>
               <td><CategoryTree data={this.props.data} /></td>
@@ -49,6 +49,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addCategory: (value) => {
       dispatch({type: 'ADD_CATEGORY', text: value})
+    },
+    addTodo: (categoryId, todoTitle) => {
+      let todoId = Date.now();
+      dispatch({type: 'ADD_TODO_TO_SELECTED_CATEGORY', text: todoTitle, todoId: todoId, categoryId: categoryId });
+      dispatch({type: 'ADD_TODO_TO_SELECTED_LIST', text: todoTitle, todoId: todoId});
     }
   }
 }
