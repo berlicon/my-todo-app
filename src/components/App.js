@@ -15,8 +15,8 @@ class App extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <td><h3>To-Do List2</h3></td>
-              <td><Filter /></td>
+              <td><h3>To-Do List</h3></td>
+              <td><Filter data={this.props.data.todoFilter}/></td>
             </tr>
             <tr>
               <td colSpan="2"><Progress /></td>

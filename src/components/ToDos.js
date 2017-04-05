@@ -8,9 +8,13 @@ class ToDos extends Component {
 
   render() {
     this.listItems = this.props.data.selectedCategoryTodos.map((todo) =>
+    {
+      return ((this.props.data.todoFilter.isDone && !todo.isDone)
+      || !todo.title.includes(this.props.data.todoFilter.filter)) ? null :
       <li key={todo.id}>
         <input type="checkbox" checked={todo.isDone} readOnly/>{todo.title}
       </li>
+    }
     );
 
     return (
