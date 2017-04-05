@@ -27,9 +27,9 @@ class App extends Component {
               <td><AddToDo /></td>
             </tr>
             <tr>
-              <td><CategoryTree data={this.props.tree} /></td>
+              <td><CategoryTree data={this.props.data} /></td>
               <td style={{ verticalAlign: 'top' }}>
-                <ToDos data={this.props.tree}/>
+                <ToDos data={this.props.data}/>
                 </td>
             </tr>
           </tbody>
@@ -41,7 +41,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    tree: state
+    data: state
   }
 }
 

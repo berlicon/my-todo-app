@@ -11,16 +11,16 @@ let data = [
             new CategoryItem(5, "Category 1.2.2", [], []),
           ],
           [
-            new ToDoItem(1, "ToDo #1+", false),
-            new ToDoItem(2, "ToDo #2+", true),
-            new ToDoItem(3, "ToDo #3+", true),
+            new ToDoItem(1, "ToDo #1.2-1", false),
+            new ToDoItem(2, "ToDo #1.2-2", true),
+            new ToDoItem(3, "ToDo #1.2-3", false),
           ]
      ),
     ],
     [
-      new ToDoItem(4, "ToDo #1", false),
-      new ToDoItem(5, "ToDo #2", true),
-      new ToDoItem(6, "ToDo #3", true),
+      new ToDoItem(4, "ToDo #1-1", false),
+      new ToDoItem(5, "ToDo #1-2", true),
+      new ToDoItem(6, "ToDo #1-3", true),
     ]),
     new CategoryItem(6, "Category 2",
     [
@@ -28,8 +28,8 @@ let data = [
       new CategoryItem(8, "Category 2.2", [], []),
     ],
     [
-      new ToDoItem(7, "ToDo #2.1", false),
-      new ToDoItem(8, "ToDo #2.2", true),
+      new ToDoItem(7, "ToDo #2-1", false),
+      new ToDoItem(8, "ToDo #2-2", true),
     ]),
     new CategoryItem(9, "Category 3",
     [
@@ -41,8 +41,7 @@ let data = [
     [
     ],
     [
-      new ToDoItem(9, "ToDo #4.1", false),
-      new ToDoItem(10, "ToDo #4.2", true),
+      new ToDoItem(9, "ToDo #4-1", true),
     ]),
 ];
 

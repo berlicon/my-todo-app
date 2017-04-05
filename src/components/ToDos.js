@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
-export default class ToDos extends Component {
-  constructor(props) {
+class ToDos extends Component {
+  /*constructor(props) {
         super(props);
-
-        //let selectedCategoryId = this.props.data.selectedCategoryId;
-
-        const todos = this.props.data.categories[0].todos;
-
-        this.listItems = todos.map((todo) =>
-          <li key={todo.id}>
-            <input type="checkbox" checked={todo.isDone} readOnly/>{todo.title}
-          </li>
-        );
-    }
+    }*/
 
   render() {
+    this.listItems = this.props.data.selectedCategoryTodos.map((todo) =>
+      <li key={todo.id}>
+        <input type="checkbox" checked={todo.isDone} readOnly/>{todo.title}
+      </li>
+    );
+
     return (
       <div style={{ textAlign: 'left' }}>
-        <div>Count of categories: {this.props.data.categories.length}</div>
-        <div>Count of todos in selected category: {this.listItems.length}</div>
+        <div>Count of todos in selected category: <b>{this.listItems.length}</b></div>
         <hr/>
         <ul>{this.listItems}</ul>
       </div>
-
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    data: state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // selectCategory: (value) => {
+    //   dispatch({type: 'SELECT_CATEGORY', todos: value})
+    //}
+  }
+}
+
+const BindedToDos = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ToDos)
+
+export default BindedToDos

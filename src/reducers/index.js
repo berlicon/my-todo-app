@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import categories from './categories'
-import selectedCategory from './selectedCategory'
+import selectedCategoryTodos from './selectedCategoryTodos'
 
 const todoApp = combineReducers({
   categories,
-  selectedCategory
+  selectedCategoryTodos
 })
 
 export default todoApp
