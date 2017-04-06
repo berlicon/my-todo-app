@@ -7,7 +7,7 @@ import AddCategory from './AddCategory';
 import AddToDo from './AddToDo';
 import CategoryTree from './CategoryTree';
 import ToDos from './ToDos';
-import UndoRedo from './UndoRedo'
+import UndoRedo from './UndoRedo';
 
 class App extends Component {
   render() {
@@ -16,7 +16,11 @@ class App extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <td><h3>To-Do List</h3><UndoRedo /></td>
+              <td><h3>To-Do List</h3>
+              <a href="/">Home</a>&nbsp;&nbsp;&nbsp;
+              <a href="/about">About</a>&nbsp;&nbsp;&nbsp;
+              <UndoRedo />
+              </td>
               <td><Filter data={this.props.data.todoFilter}/></td>
             </tr>
             <tr>
