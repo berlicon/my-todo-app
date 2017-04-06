@@ -7,7 +7,7 @@ class ToDos extends Component {
     }*/
 
   render() {
-    this.listItems = this.props.data.selectedCategory.todos.map((todo) =>
+    this.listItems = this.props.data.selectedCategory.present.todos.map((todo) =>
     {
       return ((this.props.data.todoFilter.isDone && !todo.isDone)
       || !todo.title.includes(this.props.data.todoFilter.filter)) ? null :

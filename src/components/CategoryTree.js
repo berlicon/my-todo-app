@@ -6,7 +6,7 @@ class CategoryTree extends Component {
   constructor(props) {
         super(props);
         this.state = {
-            treeData: this.props.data.categories,
+            treeData: this.props.data.categories.present,
         };
         this.selectedCategoryTitle = '???';
         this.selectedCategoryTodosCount = '???';
@@ -14,7 +14,7 @@ class CategoryTree extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-        treeData: nextProps.data.categories,
+        treeData: nextProps.data.categories.present,
     });
   }
 
@@ -43,7 +43,7 @@ class CategoryTree extends Component {
 
     return (
       <div style={{ height: 400 }}>
-        # categories: <b>{this.props.data.categories.length}</b>
+        # categories: <b>{this.props.data.categories.present.length}</b>
         &nbsp;&nbsp;
         Selected category: <b>{this.selectedCategoryTitle}</b>
         &nbsp;&nbsp;
@@ -72,6 +72,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  //TODO: extract to \actions\
   return {
     selectCategory: (categoryId, todos) => {
       dispatch({type: 'SELECT_CATEGORY', categoryId: categoryId, todos: todos })

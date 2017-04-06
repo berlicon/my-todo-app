@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 import Filter from './Filter';
 import Progress from './Progress';
@@ -6,7 +7,7 @@ import AddCategory from './AddCategory';
 import AddToDo from './AddToDo';
 import CategoryTree from './CategoryTree';
 import ToDos from './ToDos';
-import { connect } from 'react-redux'
+import UndoRedo from './UndoRedo'
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <td><h3>To-Do List</h3></td>
+              <td><h3>To-Do List</h3><UndoRedo /></td>
               <td><Filter data={this.props.data.todoFilter}/></td>
             </tr>
             <tr>
@@ -24,7 +25,7 @@ class App extends Component {
             <tr>
               <td><AddCategory addCategory={this.props.addCategory} />
               </td>
-              <td><AddToDo addTodo={this.props.addTodo} categoryId={this.props.data.selectedCategory.categoryId} /></td>
+              <td><AddToDo addTodo={this.props.addTodo} categoryId={this.props.data.selectedCategory.present.categoryId} /></td>
             </tr>
             <tr>
               <td><CategoryTree data={this.props.data} /></td>
@@ -46,6 +47,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  //TODO: extract to \actions\
   return {
     addCategory: (value) => {
       dispatch({type: 'ADD_CATEGORY', text: value})

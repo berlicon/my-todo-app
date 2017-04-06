@@ -72,5 +72,3 @@ const categories = (state = data, action) => {
 }
 
 export default categories
-
-//dispatch({type: 'ADD_TODO_TO_SELECTED_CATEGORY', text: todoTitle, categoryId: categoryId });
