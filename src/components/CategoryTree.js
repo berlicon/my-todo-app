@@ -63,19 +63,20 @@ class CategoryTree extends Component {
               <button
                 style={{ verticalAlign: 'middle' }}
                 onClick={() => alertNodeInfo(rowInfo)}>
-              <img src={selectImage} alt="Select category" title="Select category" style={{ height: '20px'}}/>
+                <img src={selectImage} alt="Select category" title="Select category" style={{ height: '20px'}}/>
               </button>,
               <button
                 style={{ verticalAlign: 'middle' }}>
-              <img src={editImage} alt="Edit category" title="Edit category" style={{ height: '20px'}}/>
+                <img src={editImage} alt="Edit category" title="Edit category" style={{ height: '20px'}}/>
               </button>,
               <button
                 style={{ verticalAlign: 'middle' }}>
-              <img src={deleteImage} alt="Delete category" title="Delete category" style={{ height: '20px'}}/>
+                <img src={deleteImage} alt="Delete category" title="Delete category" style={{ height: '20px'}}
+                onClick={() => {if (confirm('Are you sure to delete category?')) this.props.deleteCategory(rowInfo.node.id)}}/>
               </button>,
               <button
                 style={{ verticalAlign: 'middle' }}>
-              <img src={addImage} alt="Add category" title="Add category" style={{ height: '20px'}}/>
+                <img src={addImage} alt="Add category" title="Add category" style={{ height: '20px'}}/>
               </button>,
             ],
           })}

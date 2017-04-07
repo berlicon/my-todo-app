@@ -52,6 +52,8 @@ const categories = (state = data, action) => {
           new CategoryItem(Date.now(), action.text, [], []),
           ...state
         ];
+    case 'DELETE_CATEGORY':
+      return state.filter((elem) => { return elem.id !== action.id});
     case 'ADD_TODO_TO_SELECTED_CATEGORY':
       var copy = Object.assign([], state);
 

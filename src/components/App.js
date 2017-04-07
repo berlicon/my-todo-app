@@ -32,7 +32,7 @@ class App extends Component {
               <td><AddToDo addTodo={this.props.addTodo} categoryId={this.props.data.selectedCategory.present.categoryId} /></td>
             </tr>
             <tr>
-              <td><CategoryTree data={this.props.data} /></td>
+              <td><CategoryTree data={this.props.data} deleteCategory={this.props.deleteCategory} /></td>
               <td style={{ verticalAlign: 'top' }}>
                 <ToDos data={this.props.data}/>
                 </td>
@@ -55,6 +55,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addCategory: (value) => {
       dispatch({type: 'ADD_CATEGORY', text: value})
+    },
+    deleteCategory: (value) => {
+      dispatch({type: 'DELETE_CATEGORY', id: value})
     },
     addTodo: (categoryId, todoTitle) => {
       let todoId = Date.now();
