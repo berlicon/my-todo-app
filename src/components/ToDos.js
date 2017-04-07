@@ -19,7 +19,9 @@ class ToDos extends Component {
             &nbsp;&nbsp;{todo.title}
           </div>
           <div style={{ float: 'right' }}>
-            <a href="#"><img src={editImage} alt="Edit todo"/></a>
+            <button onClick={() => alert('show edit todo popup')}>
+              <img src={editImage} alt="Edit todo" title="Edit todo"/>
+            </button>
           </div>
         </div>
       </div>

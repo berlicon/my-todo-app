@@ -76,7 +76,7 @@ class CategoryTree extends Component {
               </button>,
               <button
                 style={{ verticalAlign: 'middle' }}>
-                <img src={addImage} alt="Add category" title="Add category" style={{ height: '20px'}}/>
+                <img src={addImage} alt="Add sub category" title="Add sub category" style={{ height: '20px'}}/>
               </button>,
             ],
           })}
