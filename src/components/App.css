@@ -12,9 +12,10 @@
   padding: 10px;
 }
 
-.progress {
-  height:7px;
-  width:75%;
+.todoDiv {
+  border-style: dotted dashed solid;
+  border-color: lightgrey;
+  padding: 10px;
 }
 
 .selectedCategory {

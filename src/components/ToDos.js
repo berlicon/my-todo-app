@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import editImage from './images/edit.png';
 
 class ToDos extends Component {
   /*constructor(props) {
@@ -11,9 +12,17 @@ class ToDos extends Component {
     {
       return ((this.props.data.todoFilter.isDone && !todo.isDone)
       || !todo.title.includes(this.props.data.todoFilter.filter)) ? null :
-      <li key={todo.id}>
-        <input type="checkbox" checked={todo.isDone} readOnly/>{todo.title}
-      </li>
+      <div key={todo.id} className="todoDiv">
+        <div style={{ height: '25px' }}>
+          <div style={{ float: 'left' }}>
+            <input type="checkbox" checked={todo.isDone} readOnly/>
+            &nbsp;&nbsp;{todo.title}
+          </div>
+          <div style={{ float: 'right' }}>
+            <a href="#"><img src={editImage} alt="Edit todo"/></a>
+          </div>
+        </div>
+      </div>
     }
     );
 
@@ -21,7 +30,7 @@ class ToDos extends Component {
       <div style={{ textAlign: 'left' }}>
         <div>Count of todos in selected category: <b>{this.listItems.length}</b></div>
         <hr/>
-        <ul>{this.listItems}</ul>
+        {this.listItems}
       </div>
     );
   }
