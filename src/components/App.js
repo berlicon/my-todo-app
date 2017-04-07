@@ -8,6 +8,7 @@ import AddToDo from './AddToDo';
 import CategoryTree from './CategoryTree';
 import ToDos from './ToDos';
 import UndoRedo from './UndoRedo';
+import Links from './Links';
 
 class App extends Component {
   render() {
@@ -17,8 +18,7 @@ class App extends Component {
           <tbody>
             <tr>
               <td><h3>To-Do List</h3>
-              <a href="/">Home</a>&nbsp;&nbsp;&nbsp;
-              <a href="/about">About</a>&nbsp;&nbsp;&nbsp;
+              <Links currentUrl={this.props.location.pathname}/>
               <UndoRedo />
               </td>
               <td><Filter data={this.props.data.todoFilter}/></td>
