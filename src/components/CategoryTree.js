@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router';
+import addImage from './images/add.png';
+import deleteImage from './images/delete.png';
+import editImage from './images/edit.png';
+import selectImage from './images/select.png';
 
 class CategoryTree extends Component {
   constructor(props) {
@@ -58,8 +62,21 @@ class CategoryTree extends Component {
             buttons: [
               <button
                 style={{ verticalAlign: 'middle' }}
-                onClick={() => alertNodeInfo(rowInfo)}
-              >ℹ</button>,
+                onClick={() => alertNodeInfo(rowInfo)}>
+              <img src={selectImage} alt="Select category" title="Select category" style={{ height: '20px'}}/>
+              </button>,
+              <button
+                style={{ verticalAlign: 'middle' }}>
+              <img src={editImage} alt="Edit category" title="Edit category" style={{ height: '20px'}}/>
+              </button>,
+              <button
+                style={{ verticalAlign: 'middle' }}>
+              <img src={deleteImage} alt="Delete category" title="Delete category" style={{ height: '20px'}}/>
+              </button>,
+              <button
+                style={{ verticalAlign: 'middle' }}>
+              <img src={addImage} alt="Add category" title="Add category" style={{ height: '20px'}}/>
+              </button>,
             ],
           })}
         />
