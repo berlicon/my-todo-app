@@ -24,7 +24,7 @@ class App extends Component {
               <td><Filter data={this.props.data.todoFilter}/></td>
             </tr>
             <tr>
-              <td colSpan="2"><Progress /></td>
+              <td colSpan="2"><Progress data={this.props.data}/></td>
             </tr>
             <tr>
               <td><AddCategory addCategory={this.props.addCategory} />
