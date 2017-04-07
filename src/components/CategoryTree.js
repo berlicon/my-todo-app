@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router';
 
 class CategoryTree extends Component {
   constructor(props) {
@@ -32,6 +33,8 @@ class CategoryTree extends Component {
         this.selectedCategoryTitle = node.title;
         this.selectedCategoryTodosCount = node.todos.length;
         this.props.selectCategory(node.id, node.todos);
+
+        browserHistory.push('/categories/'+node.id);
 
         /*alert( // eslint-disable-line no-alert
             'Info passed to the button generator:\n\n' +

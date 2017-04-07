@@ -32,6 +32,7 @@ ReactDOM.render(
         <Route path="/" component={App}/>
         <Route path="/about" component={About}/>
         <Route path="/home" component={App}/>
+        <Route path="/categories/:id" component={App}/>
       </Router>
     </Provider>,
   document.getElementById('root')
