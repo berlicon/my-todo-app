@@ -11,8 +11,8 @@ class ToDos extends Component {
       modalIsOpen: false
     };
 
-    this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.saveChangesAndCloseModal = this.saveChangesAndCloseModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
     this.customStyles = {
@@ -28,13 +28,24 @@ class ToDos extends Component {
   }
 
   openModal(todo) {
-    this.setState({modalIsOpen: true});
-    //this.setState({todo: todo});
+    this.setState({todo: todo, modalIsOpen: true});
   }
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    //this.refs.txtTitle.value = 'title';
+    this.refs.txtTitle.value = this.state.todo.title;
+    this.refs.chkIsDone.checked = this.state.todo.isDone;
+    this.refs.txtDescription.value = this.state.todo.description;
+  }
+
+  saveChangesAndCloseModal() {
+    this.props.updateTodo(
+      this.state.todo.id,
+      this.refs.txtTitle.value,
+      this.refs.chkIsDone.checked,
+      this.refs.txtDescription.value
+    );
+    this.setState({modalIsOpen: false});
   }
 
   closeModal() {
@@ -53,7 +64,7 @@ class ToDos extends Component {
             &nbsp;&nbsp;{todo.title}
           </div>
           <div style={{ float: 'right' }}>
-            <button onClick={this.openModal}>
+            <button onClick={() => this.openModal(todo)}>
               <img src={editImage} alt="Edit todo" title="Edit todo"/>
             </button>
           </div>
@@ -76,18 +87,18 @@ class ToDos extends Component {
           contentLabel="Edit popup"
         >
 
-          <button onClick={this.closeModal}>Save changes</button>
+          <button onClick={this.saveChangesAndCloseModal}>Save changes</button>
           &nbsp;&nbsp;
           <button onClick={this.closeModal}>Cancel</button>
           <br/><br/>
           <form>
-            <input type="text" placeholder="Enter todo title"/><br/><br/>
+            <input type="text" placeholder="Title" ref="txtTitle"/><br/><br/>
             <label>
-              <input type="checkbox" checked={true}/>
+              <input type="checkbox" defaultChecked ref="chkIsDone"/>
               Done
             </label>
             <br/><br/>
-            <textarea cols="40" rows="5" placeholder="Description"/>
+            <textarea cols="40" rows="5" placeholder="Description" ref="txtDescription"/>
           </form>
         </Modal>
       </div>
@@ -103,9 +114,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // selectCategory: (value) => {
-    //   dispatch({type: 'SELECT_CATEGORY', todos: value})
-    //}
+    updateTodo: (id, title, isDone, description) => {
+      dispatch({type: 'UPDATE_TODO', id: id, title: title , isDone: isDone , description: description })
+    }
   }
 }
 

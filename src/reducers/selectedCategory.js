@@ -16,8 +16,24 @@ const selectedCategory =  (state = initialData, action) => {
       return {
           categoryId: state.categoryId,
           todos: [
-            new ToDoItem(action.todoId, action.text, false),
+            new ToDoItem(action.todoId, action.text, false, ''),
             ...state.todos]
+        }
+    case 'UPDATE_TODO':
+      var copy = Object.assign([], state.todos);
+
+      //TODO: need to upd todo in nested categories also
+      copy.forEach(function(todo) {
+        if (todo.id === action.id) {
+          todo.title = action.title;
+          todo.isDone = action.isDone;
+          todo.description = action.description;
+        }
+      });
+
+      return {
+          categoryId: state.categoryId,
+          todos: copy
         }
     default:
       return state;
