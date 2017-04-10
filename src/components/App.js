@@ -9,6 +9,7 @@ import CategoryTree from './CategoryTree';
 import ToDos from './ToDos';
 import UndoRedo from './UndoRedo';
 import Links from './Links';
+import Info from './Info';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <tbody>
             <tr>
               <td><h3>To-Do List</h3>
+              <Info />
               <Links currentUrl={this.props.location.pathname}/>
               <UndoRedo />
               </td>

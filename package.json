@@ -13,7 +13,8 @@
     "react-router-redux": "^4.0.8",
     "react-sortable-tree": "^0.1.15",
     "redux": "^3.6.0",
-    "redux-undo": "^0.6.1"
+    "redux-undo": "^0.6.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
