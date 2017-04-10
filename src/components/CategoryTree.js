@@ -6,6 +6,7 @@ import addImage from './images/add.png';
 import deleteImage from './images/delete.png';
 import editImage from './images/edit.png';
 import selectImage from './images/select.png';
+import moveImage from './images/move.png';
 
 class CategoryTree extends Component {
   constructor(props) {
@@ -77,6 +78,10 @@ class CategoryTree extends Component {
               <button
                 style={{ verticalAlign: 'middle' }}>
                 <img src={addImage} alt="Add sub category" title="Add sub category" style={{ height: '20px'}}/>
+              </button>,
+              <button
+                style={{ verticalAlign: 'middle' }}>
+                <img src={moveImage} alt="Move task to another category" title="Move task to another category" style={{ height: '20px'}}/>
               </button>,
             ],
           })}
