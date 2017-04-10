@@ -46,6 +46,8 @@ let data = [
 ];
 
 const categories = (state = data, action) => {
+  let copy = Object.assign([], state);
+
   switch (action.type) {
     case 'ADD_CATEGORY':
       return [
@@ -55,8 +57,6 @@ const categories = (state = data, action) => {
     case 'DELETE_CATEGORY':
       return state.filter((elem) => { return elem.id !== action.id});
     case 'ADD_TODO_TO_SELECTED_CATEGORY':
-      var copy = Object.assign([], state);
-
       //TODO: need to add todo in nested categories also
       copy.forEach(function(category) {
         if (category.id === action.categoryId) {
@@ -65,6 +65,19 @@ const categories = (state = data, action) => {
             ...category.todos
           ];
         }
+      });
+
+      return copy;
+    case 'UPDATE_TODO_TO_SELECTED_CATEGORY':
+      //TODO: need to update todo in nested categories also
+      copy.forEach(function(category) {
+        category.todos.forEach(function(todo) {
+          if (todo.id === action.todoId) {
+            todo.title = action.title;
+            todo.isDone = action.isDone;
+            todo.description = action.description;
+          }
+        });
       });
 
       return copy;

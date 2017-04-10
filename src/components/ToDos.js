@@ -114,8 +114,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateTodo: (id, title, isDone, description) => {
-      dispatch({type: 'UPDATE_TODO', id: id, title: title , isDone: isDone , description: description })
+    updateTodo: (todoId, title, isDone, description) => {
+      dispatch({type: 'UPDATE_TODO_IN_SELECTED_LIST', todoId: todoId, title: title , isDone: isDone , description: description })
+      dispatch({type: 'UPDATE_TODO_TO_SELECTED_CATEGORY', todoId: todoId, title: title , isDone: isDone , description: description })
     }
   }
 }
