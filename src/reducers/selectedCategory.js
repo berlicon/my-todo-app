@@ -5,7 +5,7 @@ let initialData = {
   todos: []
 };
 
-const selectedCategory =  (state = initialData, action) => {
+const selectedCategory = (state = initialData, action) => {
   switch (action.type) {
     case 'SELECT_CATEGORY':
       return {
