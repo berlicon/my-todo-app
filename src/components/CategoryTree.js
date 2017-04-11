@@ -24,31 +24,15 @@ class CategoryTree extends Component {
     });
   }
 
+  selectCategory (node) {
+    this.selectedCategoryTitle = node.title;
+    this.selectedCategoryTodosCount = node.todos.length;
+    this.props.selectCategory(node.id, node.todos);
+
+    browserHistory.push('/categories/'+node.id);
+  }
+
   render() {
-    const alertNodeInfo = ({
-        node,
-        path,
-        treeIndex,
-        lowerSiblingCounts: _lowerSiblingCounts,
-    }) => {
-        /*const objectString = Object.keys(node)
-            .map(k => (k === 'children' ? 'children: Array' : `${k}: '${node[k]}'`))
-            .join(',\n   ');*/
-
-        this.selectedCategoryTitle = node.title;
-        this.selectedCategoryTodosCount = node.todos.length;
-        this.props.selectCategory(node.id, node.todos);
-
-        browserHistory.push('/categories/'+node.id);
-
-        /*alert( // eslint-disable-line no-alert
-            'Info passed to the button generator:\n\n' +
-            `node: {\n   ${objectString}\n},\n` +
-            `path: [${path.join(', ')}],\n` +
-            `treeIndex: ${treeIndex}`
-        );*/
-    };
-
     return (
       <div style={{ height: 400 }}>
         # categories: <b>{this.props.data.categories.present.length}</b>
@@ -63,7 +47,7 @@ class CategoryTree extends Component {
             buttons: [
               <button
                 style={{ verticalAlign: 'middle' }}
-                onClick={() => alertNodeInfo(rowInfo)}>
+                onClick={() => this.selectCategory(rowInfo.node)}>
                 <img src={selectImage} alt="Select category" title="Select category" style={{ height: '20px'}}/>
               </button>,
               <button
