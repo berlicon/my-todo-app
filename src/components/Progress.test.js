@@ -4,7 +4,6 @@ import Progress from './Progress';
 import ToDoItem from '../model/ToDoItem';
 import CategoryItem from '../model/CategoryItem';
 
-
 function setup() {
   let props = { categories: {} }
   props.categories.present = [
@@ -32,6 +31,7 @@ describe('<Progress /> component tests', () => {
   it('Progress component calculates progress correctly based on todos in props', () => {
     const { enzymeWrapper } = setup()
     const text = enzymeWrapper.find('h5').text()
+
     expect(text).toBe("67% completed")
   });
 });
