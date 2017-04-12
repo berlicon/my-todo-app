@@ -16,7 +16,7 @@ componentDidMount() {
       .then(function(response) {
         return response.json()
       }).then(function(json) {
-        console.log('rate', json.query.results.rate.Rate);
+        //console.log('rate', json.query.results.rate.Rate);
         self.setState({
             rate: json.query.results.rate.Rate
         });

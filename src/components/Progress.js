@@ -29,7 +29,7 @@ export default class Progress extends Component {
     return (
       <div>
         <Line percent={this.progress} strokeWidth="1" strokeColor="green" /><br/>
-        {this.progress}% completed
+        <h5>{this.progress}% completed</h5>
       </div>
     );
   }
