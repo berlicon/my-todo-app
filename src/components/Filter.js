@@ -48,9 +48,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const BindedFilter = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Filter)
-
-export default BindedFilter

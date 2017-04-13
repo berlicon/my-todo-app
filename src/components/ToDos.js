@@ -121,9 +121,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const BindedToDos = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ToDos)
-
-export default BindedToDos

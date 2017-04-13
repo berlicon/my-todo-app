@@ -69,9 +69,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const BindedApp = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
-
-export default BindedApp

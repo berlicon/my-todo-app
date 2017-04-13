@@ -90,9 +90,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const BindedCategoryTree = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CategoryTree)
-
-export default BindedCategoryTree
