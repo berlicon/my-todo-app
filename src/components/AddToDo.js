@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 export default class AddToDo extends Component {
   addTodo = () => {
@@ -14,7 +16,9 @@ export default class AddToDo extends Component {
         <input type="text" placeholder="Enter todo title"
           disabled={!this.props.categoryId}
           ref={node => { this.txtTodo = node }}/>
-        <button onClick={this.addTodo} disabled={!this.props.categoryId}>Add</button>
+        <FloatingActionButton mini={true} disabled={!this.props.categoryId} onClick={this.addTodo}>
+          <ContentAdd />
+        </FloatingActionButton>
       </div>
     );
   }
