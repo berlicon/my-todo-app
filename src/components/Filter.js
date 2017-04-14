@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField';
+import Toggle from 'material-ui/Toggle';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Filter extends Component {
@@ -9,10 +10,12 @@ class Filter extends Component {
 
         injectTapEventPlugin();
         this.filter = '';
+        this.isDone = false;
     }
 
   changeIsDone = () => {
-      this.props.changeIsDone(this.chkShowDone.checked);
+    this.isDone = !this.isDone;
+    this.props.changeIsDone(this.isDone);
   }
 
   changeFilter = (value) => {
@@ -23,16 +26,12 @@ class Filter extends Component {
   render() {
     return (
       <div>
-        <label>
-          <input type="checkbox"
-            checked={this.props.data.isDone}
-            ref={node => { this.chkShowDone = node }}
-            onChange={this.changeIsDone}
+        <Toggle label="Show done"
+          style={{ display: 'inline-block', width: '150px' }}
+          onToggle={this.changeIsDone.bind(this)}
+          toggled={this.isDone}
           />
-          Show done
-        </label>
-        &nbsp;&nbsp;&nbsp;
-
+        &nbsp;&nbsp;
         <TextField floatingLabelText="Search in todos"
           value={this.filter}
           onChange={e => this.changeFilter(e.target.value)}/>
