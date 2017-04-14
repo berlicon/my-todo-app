@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import TextField from 'material-ui/TextField';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Filter extends Component {
+  constructor(props) {
+        super(props);
+
+        injectTapEventPlugin();
+        this.filter = '';
+    }
+
   changeIsDone = () => {
       this.props.changeIsDone(this.chkShowDone.checked);
   }
 
-  changeFilter = () => {
-      this.props.changeFilter(this.txtFilter.value);
+  changeFilter = (value) => {
+    this.filter = value;
+    this.props.changeFilter(this.filter);
   }
 
   render() {
@@ -22,10 +32,10 @@ class Filter extends Component {
           Show done
         </label>
         &nbsp;&nbsp;&nbsp;
-        <input type="text" placeholder="Search"
-          ref={node => { this.txtFilter = node }}
-          value={this.props.data.filter}
-          onChange={this.changeFilter}/>
+
+        <TextField floatingLabelText="Search in todos"
+          value={this.filter}
+          onChange={e => this.changeFilter(e.target.value)}/>
       </div>
     );
   }
