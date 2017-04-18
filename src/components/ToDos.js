@@ -8,7 +8,8 @@ class ToDos extends Component {
     super(props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      todo: null
     };
 
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -86,7 +87,6 @@ class ToDos extends Component {
           style={this.customStyles}
           contentLabel="Edit popup"
         >
-
           <button onClick={this.saveChangesAndCloseModal}>Save changes</button>
           &nbsp;&nbsp;
           <button onClick={this.closeModal}>Cancel</button>

@@ -81,6 +81,14 @@ const categories = (state = data, action) => {
       });
 
       return copy;
+    case 'UPDATE_CATEGORY':
+      copy.forEach(function(category) {
+          if (category.id === action.categoryId) {
+            category.title = action.title;
+          }
+      });
+
+      return copy;
     default:
       return state;
   }
