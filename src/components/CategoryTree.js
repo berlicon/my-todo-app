@@ -38,6 +38,7 @@ class CategoryTree extends Component {
 
   openModal(category) {
     this.setState({selectedCategory: category, modalIsOpen: true});
+    this.selectCategory(category);
   }
 
   afterOpenModal() {
